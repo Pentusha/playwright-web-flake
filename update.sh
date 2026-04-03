@@ -322,14 +322,5 @@ jq -n \
 echo "playwright-mcp updated to v${mcp_version}"
 echo "All versions written to versions.json"
 
-# Check if versions actually changed
-if git diff --quiet "$versions_file" 2>/dev/null; then
-    echo "updated=false" > updated.txt
-    echo "No changes detected"
-else
-    echo "updated=true" > updated.txt
-    echo "Changes detected - versions updated"
-fi
-
 # Write version for commit message
 echo "${driver_version}" > version.txt
