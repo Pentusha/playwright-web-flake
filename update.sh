@@ -202,15 +202,14 @@ for source_root_path in "${npm_source_roots[@]}"; do
         download_url="${playwright_raw_repo_url}/v${driver_version}/package-lock.json"
     fi
     lock_file="${temp_dir}/$(echo "$source_root_path" | tr '/.' '__').package-lock.json"
-    curl -fsSL -o "$lock_file" "$download_url"
-    # Use safe key by replacing / with _ for associative array
-    # Use "root" for empty path since bash doesn't allow empty string keys
-    if [ -n "$source_root_path" ]; then
-        safe_key=$(echo "$source_root_path" | tr '/' '_')
-    else
-        safe_key="root"
+    if curl -fsSL -o "$lock_file" "$download_url" 2>/dev/null && [ -s "$lock_file" ]; then
+        if [ -n "$source_root_path" ]; then
+            safe_key=$(echo "$source_root_path" | tr '/' '_')
+        else
+            safe_key="root"
+        fi
+        npm_hashes["$safe_key"]=$(prefetch-npm-deps "$lock_file")
     fi
-    npm_hashes["$safe_key"]=$(prefetch-npm-deps "$lock_file")
 done
 
 # Compute MCP hashes
@@ -258,14 +257,15 @@ jq -n \
       driver: {
         version: $driver_version,
         hash: $driver_hash,
-        npmDepsHashes: {
-          "/packages/playwright/bundles/babel": $npm_babel,
-          "/packages/playwright/bundles/expect": $npm_expect,
-          "/packages/playwright/bundles/utils": $npm_utils,
-          "/packages/playwright-core/bundles/utils": $npm_utils_core,
-          "/packages/playwright-core/bundles/zip": $npm_zip,
-          "": $npm_root
-        }
+        npmDepsHashes: (
+          {}
+          + (if $npm_babel != "" then {"/packages/playwright/bundles/babel": $npm_babel} else {} end)
+          + (if $npm_expect != "" then {"/packages/playwright/bundles/expect": $npm_expect} else {} end)
+          + (if $npm_utils != "" then {"/packages/playwright/bundles/utils": $npm_utils} else {} end)
+          + (if $npm_utils_core != "" then {"/packages/playwright-core/bundles/utils": $npm_utils_core} else {} end)
+          + (if $npm_zip != "" then {"/packages/playwright-core/bundles/zip": $npm_zip} else {} end)
+          + {"": $npm_root}
+        )
       },
       browsers: {
         chromium: {
