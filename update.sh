@@ -224,11 +224,11 @@ mcp_npm_hash=$(prefetch-npm-deps "$mcp_temp_dir/package-lock.json")
 jq -n \
     --arg driver_version "$driver_version" \
     --arg driver_hash "$driver_new_hash" \
-    --arg npm_babel "${npm_hashes["_packages_playwright_bundles_babel"]}" \
-    --arg npm_expect "${npm_hashes["_packages_playwright_bundles_expect"]}" \
-    --arg npm_utils "${npm_hashes["_packages_playwright_bundles_utils"]}" \
-    --arg npm_utils_core "${npm_hashes["_packages_playwright-core_bundles_utils"]}" \
-    --arg npm_zip "${npm_hashes["_packages_playwright-core_bundles_zip"]}" \
+    --arg npm_babel "${npm_hashes["_packages_playwright_bundles_babel"]:-}" \
+    --arg npm_expect "${npm_hashes["_packages_playwright_bundles_expect"]:-}" \
+    --arg npm_utils "${npm_hashes["_packages_playwright_bundles_utils"]:-}" \
+    --arg npm_utils_core "${npm_hashes["_packages_playwright-core_bundles_utils"]:-}" \
+    --arg npm_zip "${npm_hashes["_packages_playwright-core_bundles_zip"]:-}" \
     --arg npm_root "${npm_hashes["root"]}" \
     --arg chromium_x86_64_linux "${browser_hashes["chromium.x86_64-linux"]}" \
     --arg chromium_aarch64_linux "${browser_hashes["chromium.aarch64-linux"]}" \
