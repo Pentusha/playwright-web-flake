@@ -24,10 +24,11 @@
           inherit (self.packages.${system}) playwright-driver;
           inherit versions;
         };
+        obscura = pkgs.callPackage ./obscura/package.nix { inherit versions; };
       in
       {
         packages = {
-          inherit playwright-mcp;
+          inherit playwright-mcp obscura;
           inherit (playwright-driver-pkg) playwright-test;
           playwright-driver = playwright-driver-pkg.playwright-core;
         };
@@ -54,6 +55,15 @@
               }
               ''
                 playwright-mcp --help
+                touch $out
+              '';
+          obscura =
+            pkgs.runCommand "check-obscura"
+              {
+                nativeBuildInputs = [ self.packages.${system}.obscura ];
+              }
+              ''
+                obscura --help
                 touch $out
               '';
         };

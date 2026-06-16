@@ -38,6 +38,15 @@
       "aarch64-darwin": "sha256-3Adnvb7zvMXKFOhb8uuj5kx0wEIFicmckYx9WLlNNf0="
     }
   },
+  "obscura": {
+    "version": "0.1.8",
+    "hashes": {
+      "x86_64-linux": "sha256-5siq5woVymQ4gHiDm6EkhDV1/wAO0lGfC7A4+O3m9hA=",
+      "aarch64-linux": "sha256-+Y7W6F1h4M2aEhAPWuNnCzK57fg2ghX5thsroRFBvNY=",
+      "x86_64-darwin": "sha256-AoZztzeOmv6mzOzAKKTBwOGdxmy3japJyvh1USDRQN0=",
+      "aarch64-darwin": "sha256-nhGqO28Dm8idX2cjQyX6jsu7jOBmKVAzWLok55R1WgM="
+    }
+  },
   "mcp": {
     "version": "0.0.76",
     "hash": "sha256-0ED8MlH9ugFP+suBaKJ1WubfGq/agcMjys92RXql88s=",
