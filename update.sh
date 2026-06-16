@@ -13,6 +13,7 @@ playwright_browsers_file="$root/playwright-driver/browsers.json"
 playwright_raw_repo_url="https://raw.githubusercontent.com/microsoft/playwright"
 driver_version=$(curl ${GITHUB_TOKEN:+" -u \":$GITHUB_TOKEN\""} -s https://api.github.com/repos/microsoft/playwright/releases/latest | jq -r '.tag_name | sub("^v"; "")')
 mcp_version=$(curl ${GITHUB_TOKEN:+" -u \":$GITHUB_TOKEN\""} -s https://api.github.com/repos/microsoft/playwright-mcp/releases/latest | jq -r '.tag_name | sub("^v"; "")')
+obscura_version=$(curl ${GITHUB_TOKEN:+" -u \":$GITHUB_TOKEN\""} -s https://api.github.com/repos/h4ckf0r0day/obscura/releases/latest | jq -r '.tag_name | sub("^v"; "")')
 browser_names=(chromium chromium-headless-shell firefox webkit ffmpeg)
 browser_platforms=(linux darwin)
 
@@ -220,6 +221,22 @@ mcp_lock_url="https://raw.githubusercontent.com/microsoft/playwright-mcp/v${mcp_
 curl -fsSL -o "$mcp_temp_dir/package-lock.json" "$mcp_lock_url"
 mcp_npm_hash=$(prefetch-npm-deps "$mcp_temp_dir/package-lock.json")
 
+# Compute Obscura hashes
+echo "Updating obscura to v${obscura_version}..."
+declare -A obscura_hashes
+obscura_platforms=("x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin")
+for key in "${obscura_platforms[@]}"; do
+    arch="${key%%-*}"
+    os="${key##*-}"
+    if [ "$os" = "darwin" ]; then
+        platform="macos"
+    else
+        platform="linux"
+    fi
+    url="https://github.com/h4ckf0r0day/obscura/releases/download/v${obscura_version}/obscura-${arch}-${platform}.tar.gz"
+    obscura_hashes["$key"]=$(nix-prefetch --option extra-experimental-features flakes -q "{ stdenv, fetchzip }: stdenv.mkDerivation { name=\"browser\"; src = fetchzip { url = \"$url\"; stripRoot = false; }; }")
+done
+
 # Build versions.json with all computed values
 jq -n \
     --arg driver_version "$driver_version" \
@@ -250,6 +267,11 @@ jq -n \
     --arg ffmpeg_aarch64_linux "${browser_hashes["ffmpeg.aarch64-linux"]}" \
     --arg ffmpeg_x86_64_darwin "${browser_hashes["ffmpeg.x86_64-darwin"]}" \
     --arg ffmpeg_aarch64_darwin "${browser_hashes["ffmpeg.aarch64-darwin"]}" \
+    --arg obscura_version "$obscura_version" \
+    --arg obscura_x86_64_linux "${obscura_hashes["x86_64-linux"]}" \
+    --arg obscura_aarch64_linux "${obscura_hashes["aarch64-linux"]}" \
+    --arg obscura_x86_64_darwin "${obscura_hashes["x86_64-darwin"]}" \
+    --arg obscura_aarch64_darwin "${obscura_hashes["aarch64-darwin"]}" \
     --arg mcp_version "$mcp_version" \
     --arg mcp_hash "$mcp_new_hash" \
     --arg mcp_npm_hash "$mcp_npm_hash" \
@@ -299,6 +321,15 @@ jq -n \
           "aarch64-darwin": $ffmpeg_aarch64_darwin
         }
       },
+      obscura: {
+        version: $obscura_version,
+        hashes: {
+          "x86_64-linux": $obscura_x86_64_linux,
+          "aarch64-linux": $obscura_aarch64_linux,
+          "x86_64-darwin": $obscura_x86_64_darwin,
+          "aarch64-darwin": $obscura_aarch64_darwin
+        }
+      },
       mcp: {
         version: $mcp_version,
         hash: $mcp_hash,
@@ -307,6 +338,7 @@ jq -n \
     }' > "$versions_file"
 
 echo "playwright-mcp updated to v${mcp_version}"
+echo "obscura updated to v${obscura_version}"
 echo "All versions written to versions.json"
 
 # Write version for commit message
