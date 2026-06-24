@@ -1,9 +1,9 @@
 {
   "driver": {
-    "version": "1.61.0",
-    "hash": "sha256-iQvGMLLIuKJNOTX6kdJUPgYpuSAWiZsskTwqDF8ZjWE=",
+    "version": "1.61.1",
+    "hash": "sha256-FC3Sjh4LCTqftudcwt7KO3g3c2uyWv7PixhWqSZZR4Y=",
     "npmDepsHashes": {
-      "": "sha256-IMcrDkK6CmYfMBd+0vslK1iy2qxyFnaZcptR4H789tk="
+      "": "sha256-DTRhYHRaPlthyRcD2azEIKMPaRwROLuLOdUC27Rk5zM="
     }
   },
   "browsers": {
