@@ -39,12 +39,12 @@
     }
   },
   "obscura": {
-    "version": "0.1.9",
+    "version": "0.1.10",
     "hashes": {
-      "x86_64-linux": "sha256-kb1AvkdHvrKBLbwxYlWio5bChGy+NHE+5hNahYBkT/k=",
-      "aarch64-linux": "sha256-w5I5IGH2dl0KgXWREuBkvXxlTxqMD2ieZq+yBihXE2E=",
-      "x86_64-darwin": "sha256-kRBpQP+pMyV6NvRdB2qC1B5xYcP5K8h5FLxbuagsknE=",
-      "aarch64-darwin": "sha256-ImGIkbPXjSnrozNbTm0PVTkBXN4bba4W9aEPBokUvbk="
+      "x86_64-linux": "sha256-hFdyjtmgWHO6sHTIIFvKNc3x1jAqBv0iSG8Xe3nlDz0=",
+      "aarch64-linux": "sha256-KzTav5dcQ+seGCyjCTVrzx0hQcwHCKKwQFot1YGq5xY=",
+      "x86_64-darwin": "sha256-DJ7v4lcAv4lOsGsPw/a1gN2P364On1FHAtXVutWXRLo=",
+      "aarch64-darwin": "sha256-+294v8gRsiumF9k6ygiMgCuCpqqkZ2EKgyVrQ5TcfEc="
     }
   },
   "mcp": {
