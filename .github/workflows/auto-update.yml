@@ -33,6 +33,8 @@ jobs:
           new_driver=$(jq -r '.driver.version' versions.json)
           old_mcp=$(git show HEAD:versions.json | jq -r '.mcp.version')
           new_mcp=$(jq -r '.mcp.version' versions.json)
+          old_obscura=$(git show HEAD:versions.json | jq -r '.obscura.version')
+          new_obscura=$(jq -r '.obscura.version' versions.json)
           old_lock=$(git show HEAD:flake.lock)
           old_browsers=$(git show HEAD:playwright-driver/browsers.json)
           new_browsers=$(cat playwright-driver/browsers.json)
@@ -46,6 +48,9 @@ jobs:
           fi
           if [ "$old_mcp" != "$new_mcp" ]; then
             core_rows+="| Playwright MCP | \`${old_mcp}\` | \`${new_mcp}\` |"$'\n'
+          fi
+          if [ "$old_obscura" != "$new_obscura" ]; then
+            core_rows+="| Obscura | \`${old_obscura}\` | \`${new_obscura}\` |"$'\n'
           fi
           if [ -n "$core_rows" ]; then
             body+="### Core packages"$'\n\n'
@@ -94,6 +99,9 @@ jobs:
           fi
           if [ "$old_mcp" != "$new_mcp" ]; then
             notes+="- [Playwright MCP v${new_mcp}](https://github.com/microsoft/playwright-mcp/releases/tag/v${new_mcp})"$'\n'
+          fi
+          if [ "$old_obscura" != "$new_obscura" ]; then
+            notes+="- [Obscura v${new_obscura}](https://github.com/h4ckf0r0day/obscura/releases/tag/v${new_obscura})"$'\n'
           fi
           if [ -n "$notes" ]; then
             body+="### Release notes"$'\n\n'
