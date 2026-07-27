@@ -1,50 +1,50 @@
 {
   "driver": {
-    "version": "1.61.1",
-    "hash": "sha256-FC3Sjh4LCTqftudcwt7KO3g3c2uyWv7PixhWqSZZR4Y=",
+    "version": "1.62.0",
+    "hash": "sha256-quNZuAyUsonn8lENenVGgw4ToUbv431h7AWECCh0MKY=",
     "npmDepsHashes": {
-      "": "sha256-DTRhYHRaPlthyRcD2azEIKMPaRwROLuLOdUC27Rk5zM="
+      "": "sha256-wyu4WsqUFeIm1LkGJJKmbGiwNdBz5q/ARuTzNU/JeOw="
     }
   },
   "browsers": {
     "chromium": {
-      "x86_64-linux": "sha256-/0OwT0Asm4A/rUkFruw1JYWbDInFJPuDX0CEdNjeMLo=",
-      "aarch64-linux": "sha256-5vNF1/utXGctixYJj/0qvi6X0qklIG9XCcet94feQoA=",
-      "x86_64-darwin": "sha256-LGnaeRgWq496mgoosN20ayiGmNyIFHMLM2Jl/lpALMg=",
-      "aarch64-darwin": "sha256-aJbvZQ1hY0FfDC+ZktfW2yNW3nwc0kh/P30+n/cmLf0="
+      "x86_64-linux": "sha256-3/o8ZFVeL/YDuO+aax+qcm6xv77AX6Vl6meP+S05cTk=",
+      "aarch64-linux": "sha256-53xm/L3QYH22AZ8K/5cKg1gLewKv7s3lTDmXlHw4KDg=",
+      "x86_64-darwin": "sha256-iH+6vtrXzsG4/we36u9RYGtCKNb1f5qOgVfGfZqdoeI=",
+      "aarch64-darwin": "sha256-ugo4gRST53YA1uaLXfwnFhFdouShtUAGFnf2ZKbg5jI="
     },
     "chromium-headless-shell": {
-      "x86_64-linux": "sha256-wnN0SL8QqiFGZdevm06WOhR9o6q34+kHL5ay1mRYnxs=",
-      "aarch64-linux": "sha256-d9Qr3q4GjtUp2ZVFSq+M2Ap++WKaEscRzEkk4JwXL/E=",
-      "x86_64-darwin": "sha256-eZXicAwu+9OFELVz+O/Lv6jEMTeLY6i+BZhY5RZ0+xA=",
-      "aarch64-darwin": "sha256-qWrMOreqTOFhmFBROlXIPXrM3wqNT7iJJwpelVFke6I="
+      "x86_64-linux": "sha256-2w0Ul3tpzrVkfGHIbQGwEsCRmVUUy3OAShGhuoH6Rmw=",
+      "aarch64-linux": "sha256-DoZf+pKXW0Oj2e8vtGDDSViJ0SX8PkYE1Q0LJs53IWg=",
+      "x86_64-darwin": "sha256-PThY75tNnOg3Eh0yIh9+vhBVOQTJZ6vfd9e0b8VyifY=",
+      "aarch64-darwin": "sha256-5VQESywHZKhqc7Fhq/jqNF+yXl90F3+i9nPzBHyJV8k="
     },
     "firefox": {
-      "x86_64-linux": "sha256-VFwdhneqr/TVgrupH27NcDXAYCBsdWtj9/qnmZAyd5E=",
-      "aarch64-linux": "sha256-fcZ6hf4DY5D+54WfoJERiLdsrUjxLu3gnBVk3yhWpag=",
-      "x86_64-darwin": "sha256-nV+oV7Zp2rAWkMWAs//PnWCA0q2jzS5hjr5AEXuEoos=",
-      "aarch64-darwin": "sha256-Opwa5SbuAaXf2A+qrldHc6BkhRaOzzl0dy7R4vodG5w="
+      "x86_64-linux": "sha256-DX/LcHS9LEcs9r77JJnjSjhaOadJ0Syf5DOPCS0AYds=",
+      "aarch64-linux": "sha256-QKnxtxAzgTM/THeSePx+NXGUU/TUhcGFGeI7PS+/+WU=",
+      "x86_64-darwin": "sha256-Z5pQ0HVElHuP76IR4QozG76oqr7A7Dw2ssEQfNt/dlQ=",
+      "aarch64-darwin": "sha256-E7/Kbvjg1dcWwSe/07hMR+W6NR0JHoAPxp1e+SncQYs="
     },
     "webkit": {
-      "x86_64-linux": "sha256-QHCYfbUOcTsRm7ZKhVdRSUVmnx6Xjul3xkDSwR7XMX8=",
-      "aarch64-linux": "sha256-vbMYXrpQX9r5Zcu6KnZwALhecjos53gzIy5bpiyoHWA=",
+      "x86_64-linux": "sha256-BhmJs09T+fQ1Ee4hdeVI/Vz1AV7IG/iL9qhZqC1RcDA=",
+      "aarch64-linux": "sha256-bb88cNKRo7P1nd/jkDf5JbW8TvlfYZcUuCOUrE6Ixvg=",
       "x86_64-darwin": "sha256-zmxdNdptFJ+8sad6HICoJRNsVNdQ0j4kKKCPX9YsBE8=",
       "aarch64-darwin": "sha256-AbDHuUg8jLNPWur6hieDdY8Kc2+PmlXRJGD46yujam4="
     },
     "ffmpeg": {
       "x86_64-linux": "sha256-AWTiui+ccKHxsIaQSgc5gWCJT5gYwIWzAEqSuKgVqZU=",
       "aarch64-linux": "sha256-1mOKO2lcnlwLsC6ob//xKnKrCOp94pw8X14uBxCdj0Q=",
-      "x86_64-darwin": "sha256-ED6noxSDeEUt2DkIQ4gNe/kL+zHVeb2AD5klBk93F88=",
-      "aarch64-darwin": "sha256-3Adnvb7zvMXKFOhb8uuj5kx0wEIFicmckYx9WLlNNf0="
+      "x86_64-darwin": "sha256-zJ8BMzdneV6LlEt4I034l5u86dwW4UmO/UazWikpKV4=",
+      "aarch64-darwin": "sha256-ky10UQj+XPVGpaWAPvKd51C5brml0y9xQ6iKcrxAMRc="
     }
   },
   "obscura": {
-    "version": "0.1.10",
+    "version": "0.1.11",
     "hashes": {
-      "x86_64-linux": "sha256-hFdyjtmgWHO6sHTIIFvKNc3x1jAqBv0iSG8Xe3nlDz0=",
-      "aarch64-linux": "sha256-KzTav5dcQ+seGCyjCTVrzx0hQcwHCKKwQFot1YGq5xY=",
-      "x86_64-darwin": "sha256-DJ7v4lcAv4lOsGsPw/a1gN2P364On1FHAtXVutWXRLo=",
-      "aarch64-darwin": "sha256-+294v8gRsiumF9k6ygiMgCuCpqqkZ2EKgyVrQ5TcfEc="
+      "x86_64-linux": "sha256-guuQJu/rubJuJY5rWwbQM4z2GYMr2vEHs0w4aCgTpQk=",
+      "aarch64-linux": "sha256-cLLFweXOgxw1Zd2yUtGFuqrwUJZRjWDN+lfzHzRWNwU=",
+      "x86_64-darwin": "sha256-DhRSRpj2wrwEK3GTNAFcgM/AyJVPwuQH8wc84T59iEg=",
+      "aarch64-darwin": "sha256-xcwC2Hw4lseHE2yFuH2n+bXCHGczPpKU3WrcbrO+7j0="
     }
   },
   "mcp": {
