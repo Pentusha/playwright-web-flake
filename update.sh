@@ -176,6 +176,7 @@ curl -fsSL \
           | map({(.name): . | del(.name)})
           | add
       )
+      | .browsers.ffmpeg.revisionOverrides //= {}
     ' > "$playwright_browsers_file"
 
 # Compute all browser hashes
