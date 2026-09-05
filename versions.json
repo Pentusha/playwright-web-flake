@@ -1,33 +1,33 @@
 {
   "driver": {
-    "version": "1.62.1",
-    "hash": "sha256-3gLXo9bd2qXCy8MYMbnYU6AXIWrqoitqMBPMF4g07nY=",
+    "version": "1.63.0",
+    "hash": "sha256-W5x48pV5OlOzL65JQ3OJf2gL6T/FLAYJO2SwCb7IzOY=",
     "npmDepsHashes": {
-      "": "sha256-iebe0sP3VMdk1vBFDkwM1L4x2VrHPZF/NbjMeU5diWM="
+      "": "sha256-6unp+NT6BHEaLE9XJ6tv49N/0yY4pJ5dyvSqmE9O3SQ="
     }
   },
   "browsers": {
     "chromium": {
-      "x86_64-linux": "sha256-3/o8ZFVeL/YDuO+aax+qcm6xv77AX6Vl6meP+S05cTk=",
-      "aarch64-linux": "sha256-53xm/L3QYH22AZ8K/5cKg1gLewKv7s3lTDmXlHw4KDg=",
-      "x86_64-darwin": "sha256-iH+6vtrXzsG4/we36u9RYGtCKNb1f5qOgVfGfZqdoeI=",
-      "aarch64-darwin": "sha256-ugo4gRST53YA1uaLXfwnFhFdouShtUAGFnf2ZKbg5jI="
+      "x86_64-linux": "sha256-ORdMu1e4Peolr8rdfvzgeaFhC8RgBipaOsAm7e3ZeqE=",
+      "aarch64-linux": "sha256-2JRLR1h189ApHRu77O6YmigQpqO2rXu3InM/qrzwX/c=",
+      "x86_64-darwin": "sha256-GeKP0Y80S44gAvHmjszr9d09BE9DH1EYFSHyATzzyv0=",
+      "aarch64-darwin": "sha256-Zm7aHjwXL0kbucBiNoWxBM6rFdY0UmVIwcr/f8V31G8="
     },
     "chromium-headless-shell": {
-      "x86_64-linux": "sha256-2w0Ul3tpzrVkfGHIbQGwEsCRmVUUy3OAShGhuoH6Rmw=",
-      "aarch64-linux": "sha256-DoZf+pKXW0Oj2e8vtGDDSViJ0SX8PkYE1Q0LJs53IWg=",
-      "x86_64-darwin": "sha256-PThY75tNnOg3Eh0yIh9+vhBVOQTJZ6vfd9e0b8VyifY=",
-      "aarch64-darwin": "sha256-5VQESywHZKhqc7Fhq/jqNF+yXl90F3+i9nPzBHyJV8k="
+      "x86_64-linux": "sha256-GLqqZOwtnJig+ZCIT8FYsIxZGSFTmRwLbqNXeSOdJXA=",
+      "aarch64-linux": "sha256-FiK+GGxiDHjwj/JeOh4FZPYYclogjAxfEDcpJ4Fjoqc=",
+      "x86_64-darwin": "sha256-mh+/O0ON6TsTJ+rjzXzNx+aL5OK7uvHZg3AZkN/B/bk=",
+      "aarch64-darwin": "sha256-Elbpy5UDVndRzWRi8Nb391AhAAYl55PJ/3Fxz/RI/4I="
     },
     "firefox": {
-      "x86_64-linux": "sha256-DX/LcHS9LEcs9r77JJnjSjhaOadJ0Syf5DOPCS0AYds=",
-      "aarch64-linux": "sha256-QKnxtxAzgTM/THeSePx+NXGUU/TUhcGFGeI7PS+/+WU=",
-      "x86_64-darwin": "sha256-Z5pQ0HVElHuP76IR4QozG76oqr7A7Dw2ssEQfNt/dlQ=",
-      "aarch64-darwin": "sha256-E7/Kbvjg1dcWwSe/07hMR+W6NR0JHoAPxp1e+SncQYs="
+      "x86_64-linux": "sha256-BjHG5EQBG/Us9nG4nMYnW9NAMx8HkdDA0xy37WA2AX4=",
+      "aarch64-linux": "sha256-8FPCRHi4eoL8d466bpMfwS1bZqqLpHu7ERGcMsVF0Wo=",
+      "x86_64-darwin": "sha256-21wlwd8BctZUgSq+8I4tXZJH7yKxRqSvi2s+P3aRt40=",
+      "aarch64-darwin": "sha256-mFCMrL5PMX5C0Ob/tKKfbZfZJwF5QDM0rhS7v/P3IUw="
     },
     "webkit": {
-      "x86_64-linux": "sha256-BhmJs09T+fQ1Ee4hdeVI/Vz1AV7IG/iL9qhZqC1RcDA=",
-      "aarch64-linux": "sha256-bb88cNKRo7P1nd/jkDf5JbW8TvlfYZcUuCOUrE6Ixvg=",
+      "x86_64-linux": "sha256-crAGjTjxgbcNr5S4YBkw51+XMIToxz/fcwqenlhhNr8=",
+      "aarch64-linux": "sha256-Zmg4b2IH+b9mvppvEydheaMlUpvF5sGNk7DYTTvl9xM=",
       "x86_64-darwin": "sha256-zmxdNdptFJ+8sad6HICoJRNsVNdQ0j4kKKCPX9YsBE8=",
       "aarch64-darwin": "sha256-AbDHuUg8jLNPWur6hieDdY8Kc2+PmlXRJGD46yujam4="
     },
