@@ -85,20 +85,21 @@ browser_download_url() {
             artifact="chrome-headless-shell"
         fi
 
-        if [ "$platform" = "linux" ] && [ "$arch" = "x86_64" ]; then
-            echo "https://cdn.playwright.dev/chrome-for-testing-public/${browser_version}/linux64/${artifact}-linux64.zip"
-            return
-        fi
-
-        if [ "$platform" = "darwin" ]; then
+        if [ "$platform" = "linux" ]; then
+            if [ "$arch" = "x86_64" ]; then
+                cft_platform="linux64"
+            else
+                cft_platform="linux-arm64"
+            fi
+        elif [ "$platform" = "darwin" ]; then
             if [ "$arch" = "x86_64" ]; then
                 cft_platform="mac-x64"
             else
                 cft_platform="mac-arm64"
             fi
-            echo "https://cdn.playwright.dev/chrome-for-testing-public/${browser_version}/${cft_platform}/${artifact}-${cft_platform}.zip"
-            return
         fi
+        echo "https://cdn.playwright.dev/builds/cft/${browser_version}/${cft_platform}/${artifact}-${cft_platform}.zip"
+        return
     fi
 
     if [ "$name" = "webkit" ] && [ "$platform" = "darwin" ]; then

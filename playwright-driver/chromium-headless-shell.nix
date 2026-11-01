@@ -1,8 +1,6 @@
 {
   fetchzip,
-  revision,
   browserVersion,
-  suffix,
   system,
   throwSystem,
   stdenv,
@@ -32,7 +30,7 @@ let
       url =
         {
           x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-headless-shell-linux64.zip";
-          aarch64-linux = "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-headless-shell-${suffix}.zip";
+          aarch64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-headless-shell-linux-arm64.zip";
         }
         .${system} or throwSystem;
       stripRoot = false;

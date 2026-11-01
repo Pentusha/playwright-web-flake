@@ -2,9 +2,7 @@
   makeWrapper,
   fontconfig_file,
   fetchzip,
-  revision,
   browserVersion,
-  suffix,
   system,
   throwSystem,
   lib,
@@ -41,13 +39,14 @@
   ...
 }:
 let
+  linuxDirectory = if system == "aarch64-linux" then "chrome-linux-arm64" else "chrome-linux64";
   chromium-linux = stdenv.mkDerivation {
     name = "playwright-chromium";
     src = fetchzip {
       url =
         {
           x86_64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux64/chrome-linux64.zip";
-          aarch64-linux = "https://cdn.playwright.dev/builds/chromium/${revision}/chromium-${suffix}.zip";
+          aarch64-linux = "https://cdn.playwright.dev/builds/cft/${browserVersion}/linux-arm64/chrome-linux-arm64.zip";
         }
         .${system} or throwSystem;
       hash = hashes.${system} or throwSystem;
@@ -88,10 +87,10 @@ let
     installPhase = ''
       runHook preInstall
 
-      mkdir -p $out/chrome-linux64
-      cp -R . $out/chrome-linux64
+      mkdir -p $out/${linuxDirectory}
+      cp -R . $out/${linuxDirectory}
 
-      wrapProgram $out/chrome-linux64/chrome \
+      wrapProgram $out/${linuxDirectory}/chrome \
         --set-default SSL_CERT_FILE /etc/ssl/certs/ca-bundle.crt \
         --set-default FONTCONFIG_FILE ${fontconfig_file}
 
@@ -106,8 +105,8 @@ let
 
     postFixup = ''
       # replace bundled vulkan-loader since we are also already adding our own to RPATH
-      rm "$out/chrome-linux64/libvulkan.so.1"
-      ln -s -t "$out/chrome-linux64" "${lib.getLib vulkan-loader}/lib/libvulkan.so.1"
+      rm "$out/${linuxDirectory}/libvulkan.so.1"
+      ln -s -t "$out/${linuxDirectory}" "${lib.getLib vulkan-loader}/lib/libvulkan.so.1"
     '';
   };
   chromium-darwin = fetchzip {
