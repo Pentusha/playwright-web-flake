@@ -78,5 +78,13 @@
           '';
         };
       }
-    );
+    )
+    // {
+      # The Hydra builders are x86_64-linux. Export packages directly so
+      # retention keeps their outputs, rather than only check result files.
+      hydraJobs.x86_64-linux = self.packages.x86_64-linux // {
+        browsers = self.packages.x86_64-linux.playwright-driver.browsers;
+        browsers-chromium = self.packages.x86_64-linux.playwright-driver.browsers-chromium;
+      };
+    };
 }
